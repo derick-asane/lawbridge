@@ -5,9 +5,8 @@
 
 
 <div class="w-full flex justify-center text-[20px] sm:text-[40px] bold">
-    <span class="">Welcome, {{Auth::User()->username}} </span>
+    <span class="">Submitted cases </span>
 </div>
+<hr>
 
 @endsection
-
-    

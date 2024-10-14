@@ -1,33 +1,26 @@
 
 
-<nav class="bg-gray-800 p-4">
+<nav class="bg-gray-500 p-4">
     <div class="container mx-auto flex justify-between items-center">
             <div>
-                <a href="#" class="text-white text-xl font-bold">malle fashion</a>
+                <a href="#" class="text-white text-xl font-bold uppercase">lawbridge</a>
             </div>
             
-
             <div class="hidden md:flex md:items-center md:space-x-8 ml-6">
-                <a href="{{ route('client.home')}}" class="text-white">Home</a>
-                <a href="{{ route('client.shop')}}" class="text-white">Shop</a>
-                <a href="{{ route('client.order')}}" class="text-white">MyOrders</a>
-                <a href="#" class="text-white">Contact</a>
+                <a href="{{ route('client.home') }}" class="text-white">Home</a>
+                <a href=" {{ route('client.case') }}" class="text-white">MyCase</a>
+                <a href="#" class="text-white">CourtDate</a>
+                <a href="#" class="text-white">Consult</a>
+                <a href="#" class="text-white">Location</a>
             </div>
             
             <div class="flex justify-end items-center">
-                <div class="relative" >
-                    <a href="{{ route('client.cart') }}"><img src="{{ asset('svg/shopping-cart-logo1.svg')}}" alt="cart" class="h-10 w-10  mx-4 "></a>
-                    <span class="absolute p-1 bg-slate-400 rounded-full top-0 ">
-                        5 
-                      </span>
-                </div>
                 
                 @if(Auth::check()) 
-                
                     
                     <div class="avatar" data-toggle="modal" data-target="#userModal">
                         <!-- Display the user's avatar image here -->
-                        <img src="{{ asset('images/shoe4.png') }}" alt="User Avatar" class="rounded-full h-10 w-10 border border-red-400">
+                        <img src="{{ asset('images/law2.png') }}" alt="User Avatar" class="rounded-full h-10 w-10 border border-red-400">
                         
                     </div>
 
@@ -44,7 +37,7 @@
                                 </div>
 
                                 <div class="w-full flex justify-center">
-                                    <img src="{{ asset('images/shoe4.png') }}" alt="" class="rounded-full h-12 w-12 border border-red-400">
+                                    <img src="{{ asset('images/law2.png') }}" alt="" class="rounded-full h-12 w-12 border border-red-400">
                                 </div>
                                 
                                 <!-- Modal body -->

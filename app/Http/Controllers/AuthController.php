@@ -40,7 +40,7 @@ class AuthController extends Controller
             if($user->role ==='client'){
                 return redirect()->route('client.home')->with('login successful'); 
             }else{
-                return redirect()->route('admin.dashboard')->with('login successful');      
+                return redirect()->route('admin.dashboard')->with('login successful');        
             }
         }else{
             // Handle the case where the user is not found

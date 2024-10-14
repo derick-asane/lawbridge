@@ -1,12 +1,16 @@
 <?php
 
+use App\Http\Controllers\MycaseController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AuthenticateMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\CourtController;
+use App\Http\Controllers\CourtDateController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\FileController;
+
 
 
 
@@ -43,38 +47,33 @@ Route::get('/home', function () {
 
 
 
-
-//Products route
-Route::get('/shop', [ProductController::class, 'index'])->name('client.shop');
-
-Route::get('/product', [ProductController::class, 'index'])->name('admin.product');
-
-Route::get('/addproduct', [ProductController::class, 'create'])->name('productform');
-Route::post('/addproduct', [ProductController::class, 'store'])->name('storeproduct');
-Route::get('product/{product}/editproduct', [ProductController::class, 'edit'])->name('editproductform');
-Route::put('product/{product}/updateproduct', [ProductController::class, 'update'])->name('updateproductform');
+//mycase routes here ...
+Route::get('/case', [MycaseController::class, 'index'])->name('client.case');
+Route::get('/caseform', [MycaseController::class, 'create'])->name('caseForm');
+Route::post('/createcase', action: [MycaseController::class, 'store'])->name('storecase');
+Route::get('/case/{mycase}/detail', [MycaseController::class, 'show'])->name('show.case');
 
 
 
-//Cart route
-
-Route::get('/cart', [CartController::class, 'create'])->name('client.cart');
-Route::post('/cart/{product_id}', [CartController::class, 'addToCart'])->name('store.addtocart');
-Route::post('/cart/delete/{id}', [CartController::class, 'destroy'])->name('delete.cart');
-Route::post('/cart/edit/quantity/{id}', [CartController::class, 'updateQuantity'])->name('update.quantity');
-
-
-//Order route
-
-Route::get('/myorder', function () {
-    return view('client.myorder');
-})->name('client.order');
+//court routes here ...
+Route::get('/court', [CourtController::class, 'index'])->name('admin.court');
+Route::get('/courtform', [CourtController::class, 'create'])->name('courtForm');
+Route::post('/createcourt', action: [CourtController::class, 'store'])->name('store.court');
+Route::get('/court/{court}/edit', [CourtController::class, 'edit'])->name('courteditForm');
 
 
-Route::post('/order', [OrderController::class, 'store'])->name('store.order');
+// courtDate routes here ...
+Route::get('/courtdate', [CourtDateController::class, 'index'])->name('admin.courtdate');
+Route::get('/courtdateform', [CourtDateController::class, 'create'])->name('admin.courtdateForm');
+Route::post('/createcourtdate', action: [CourtDateController::class, 'store'])->name('store.courtdate');
+Route::get('/courtdate/{id}/edit', [CourtDateController::class, 'edit'])->name('courtdateeditForm');
+Route::put('/courtdate/{id}/updatecourtdate', [CourtDateController::class, 'update'])->name('updatecourtdate');
 
 
+// FILE routes here ...
 
+Route::get('/mycase/{mycase}/pdfFile', [FileController::class, 'getPdfForm'])->name('client.pdfForm');
+Route::post('/mycase/{id}/upload-pdf', [FileController::class, 'storePdfForm'])->name('upload.pdf');
 
 
 
@@ -87,4 +86,6 @@ Route::post('/order', [OrderController::class, 'store'])->name('store.order');
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
+
+Route::get('/getusers', [AdminDashboardController::class, 'getUsers'])->name('admin.getuser');
 
