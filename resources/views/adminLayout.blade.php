@@ -46,7 +46,7 @@
 
                     <div class="text-white flex gap-6 items-center hover:bg-slate-600 rounded-md p-1">
                         <img src="{{ asset('svg/court-folder.svg') }}" alt="" class="h-8 w-8">
-                        <a href="#">Cases</a>
+                        <a href=" {{ route('admin.getcases')}}">Cases</a>
                     </div>
                     
                     <div class="text-white flex gap-6 items-center hover:bg-slate-600 rounded-md p-1">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </section>
-                <main class="p-2">
+                <main class="p-2 h-[90%] overflow-y-auto">
                     @yield('adminContent')
                 </main>
             </div>

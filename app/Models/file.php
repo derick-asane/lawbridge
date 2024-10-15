@@ -13,6 +13,7 @@ class file extends Model
         'mycase_id',
         'file_path',
         'file_type',
+        'file_name',
         'status'
     ];
 

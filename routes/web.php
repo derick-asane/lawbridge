@@ -75,6 +75,11 @@ Route::put('/courtdate/{id}/updatecourtdate', [CourtDateController::class, 'upda
 Route::get('/mycase/{mycase}/pdfFile', [FileController::class, 'getPdfForm'])->name('client.pdfForm');
 Route::post('/mycase/{id}/upload-pdf', [FileController::class, 'storePdfForm'])->name('upload.pdf');
 
+Route::get('/mycase/{mycase}/imageFile', [FileController::class, 'getImageForm'])->name('client.imageForm');
+Route::post('/mycase/{id}/upload-image', [FileController::class, 'storeImageForm'])->name('upload.image');
+
+
+
 
 
 
@@ -87,5 +92,13 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-Route::get('/getusers', [AdminDashboardController::class, 'getUsers'])->name('admin.getuser');
+Route::get('admin/getusers', [AdminDashboardController::class, 'getUsers'])->name('admin.getuser');
+Route::get('admin/getcases', [AdminDashboardController::class, 'getCases'])->name('admin.getcases');
+Route::get('admin/case/{mycase}/detail', [AdminDashboardController::class, 'showCase'])->name('admin.showcase');
+
+
+Route::get('/mycourtdate', [CourtDateController::class, 'getUserCourtDate'])->name('client.courtdate');
+
+
+
 

@@ -9,7 +9,7 @@
             <div class="hidden md:flex md:items-center md:space-x-8 ml-6">
                 <a href="{{ route('client.home') }}" class="text-white">Home</a>
                 <a href=" {{ route('client.case') }}" class="text-white">MyCase</a>
-                <a href="#" class="text-white">CourtDate</a>
+                <a href=" {{ route('client.courtdate')}}" class="text-white">CourtDate</a>
                 <a href="#" class="text-white">Consult</a>
                 <a href="#" class="text-white">Location</a>
             </div>

@@ -6,6 +6,8 @@ use App\Models\Court;
 use App\Models\CourtDate;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class CourtDateController extends Controller
 {
@@ -16,7 +18,7 @@ class CourtDateController extends Controller
     {
         
         $courtdates = CourtDate::with('court', 'user')->get();
-        return view('admin.courtdate', compact('courtdates'));
+        return view('client.courtdate', compact('courtdates'));
         
     }
 
@@ -104,5 +106,19 @@ class CourtDateController extends Controller
     public function destroy(CourtDate $courtDate)
     {
         //
+    }
+
+    public function getUserCourtDate()
+    {
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Retrieve only the CourtDate records associated with the logged-in user
+        $courtdates = CourtDate::with('court', 'user')
+            ->where('user_id', $user->id) // Assuming 'user_id' is the foreign key in the CourtDate model
+            ->get();
+
+        // Pass the filtered courtdates to the view
+        return view('client.courtdate', compact('courtdates'));
     }
 }

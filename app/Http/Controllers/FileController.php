@@ -46,6 +46,37 @@ class FileController extends Controller
 
     
 
+
+    public function getImageForm(Mycase $mycase)
+    {
+        return view('client.uploadimage', compact('mycase'));
+    }
+
+
+    public function storeImageForm(Request $request , $mycase_id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png|max:2048', // adjust the rules as needed
+        ]);
+
+        // Get the image from the request
+        $image = $request->file('image');
+
+        $imagePath = $image->store('images', 'public');
+
+        $files = File::create([
+            'file_path' =>  $imagePath,
+            'file_name' => $request->input('name'),
+            'file_type' => 'image',
+            'mycase_id' => $mycase_id,
+
+        ]);
+
+        return redirect()->back()->with('success', 'Image file uploaded successfully!');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      */
