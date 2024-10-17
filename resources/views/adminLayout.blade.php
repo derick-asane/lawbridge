@@ -61,7 +61,7 @@
 
                     <div class="text-white flex gap-6 items-center hover:bg-slate-600 rounded-md p-1">
                         <img src="{{ asset('svg/video-conference.svg') }}" alt="" class="h-8 w-8">
-                        <a href="http://">Consultation</a>
+                        <a href="{{ route('admin.meeting')}}">Consultation</a>
                     </div>
                     <div class="text-white flex gap-6 items-center hover:bg-slate-600 rounded-md p-1">
                         <img src="{{ asset('svg/logout.svg') }}" alt="" class="h-8 w-8">

@@ -18,7 +18,6 @@
                 <th class="py-3 px-6 text-center">Court</th>
                 <th class="py-3 px-6 text-center">Location</th>
                 <th class="py-3 px-6 text-center">DateTime</th>
-
                 <th class="py-3 px-6">Actions</th>
             </tr>
         </thead>

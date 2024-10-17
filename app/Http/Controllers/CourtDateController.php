@@ -18,7 +18,7 @@ class CourtDateController extends Controller
     {
         
         $courtdates = CourtDate::with('court', 'user')->get();
-        return view('client.courtdate', compact('courtdates'));
+        return view('admin.courtdate', compact('courtdates'));
         
     }
 

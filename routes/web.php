@@ -10,6 +10,8 @@ use App\Http\Controllers\CourtController;
 use App\Http\Controllers\CourtDateController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\MeetingController;
+
 
 
 
@@ -76,7 +78,34 @@ Route::get('/mycase/{mycase}/pdfFile', [FileController::class, 'getPdfForm'])->n
 Route::post('/mycase/{id}/upload-pdf', [FileController::class, 'storePdfForm'])->name('upload.pdf');
 
 Route::get('/mycase/{mycase}/imageFile', [FileController::class, 'getImageForm'])->name('client.imageForm');
-Route::post('/mycase/{id}/upload-image', [FileController::class, 'storeImageForm'])->name('upload.image');
+Route::put('/mycase/{id}/upload-image', [FileController::class, 'storeImageForm'])->name('upload.image');
+
+
+
+//client meeting routes
+Route::get('/client/consultation', [MeetingController::class, 'index'])->name('client.meeting');
+
+Route::get('/client/{meetingId}/joinmeeting', [MeetingController::class, 'joinMeeting'])->name('client.joinmeeting');
+
+
+
+
+//admin meeting routes here ...
+
+Route::get('/admin/consultation', [MeetingController::class, 'index'])->name('admin.meeting');
+Route::get('/admin/consultationform', [MeetingController::class, 'create'])->name('admin.meetingform');
+
+Route::get('/admin/{meetingId}/joinmeeting', [MeetingController::class, 'joinMeeting'])->name('admin.joinmeeting');
+
+
+
+
+
+
+Route::post('/admin/createconsultation', action: [MeetingController::class, 'store'])->name('store.meeting');
+
+
+
 
 
 
@@ -98,6 +127,9 @@ Route::get('admin/case/{mycase}/detail', [AdminDashboardController::class, 'show
 
 
 Route::get('/mycourtdate', [CourtDateController::class, 'getUserCourtDate'])->name('client.courtdate');
+Route::put('/admin/{id}/casestatus', [AdminDashboardController::class, 'updateStatus'])->name('update.casestatus');
+
+
 
 
 

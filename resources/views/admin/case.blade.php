@@ -29,7 +29,7 @@
                     <td class="py-3 px-6 text-center">{{ $mycase->subject  }}</td>
                     <td class="py-3 px-6 text-center">{{ $mycase->type  }}</td>
                     <td class="py-3 px-6 text-center">{{ $mycase->description  }} </td>
-                    <td class="py-3 px-6 text-center">{{ $mycase->status  }} </td>
+                    <td class="py-3 px-6 text-center uppercase">{{ $mycase->status  }} </td>
                     <td class="py-3 px-3 flex justify-center">
                         <a href="{{ route('admin.showcase', ['mycase' => $mycase])}}" class="bg-green-400 text-white hover:bg-green-800 py-1 px-4 rounded">View</a>
                         

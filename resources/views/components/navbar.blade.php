@@ -10,8 +10,9 @@
                 <a href="{{ route('client.home') }}" class="text-white">Home</a>
                 <a href=" {{ route('client.case') }}" class="text-white">MyCase</a>
                 <a href=" {{ route('client.courtdate')}}" class="text-white">CourtDate</a>
-                <a href="#" class="text-white">Consult</a>
+                <a href="{{ route('client.meeting')}}" class="text-white">Consultation</a>
                 <a href="#" class="text-white">Location</a>
+                <a href="#" class="text-white">Subscribe</a>
             </div>
             
             <div class="flex justify-end items-center">

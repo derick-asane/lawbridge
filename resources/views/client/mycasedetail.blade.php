@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="w-full flex justify-center text-green-500 text-[40px] bold gap-6">
-        <span> id: {{ $mycase->id}}</span>
+        <span> Case_id: {{ $mycase->id}}</span>
         <span>Subject:{{$mycase->subject}}</span>
     </div>
     <hr>
