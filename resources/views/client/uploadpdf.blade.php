@@ -3,6 +3,12 @@
 @vite('resources/css/app.css')
 
 
+@if (session('success'))
+    <div id="alert" class="absolute top-0 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded mb-4 transition-transform duration-500 ease-in-out translate-y-[-100%]">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="bg-gray-100 flex items-center justify-center h-screen">
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -20,6 +26,10 @@
             @csrf
             
             <div>
+                <label for="name" class="block font-medium">Pdf Name</label>
+                <input id="name" type="text" name="name" required autofocus class="form-input border-b border-gray-400 mt-1 block w-full outline-none" placeholder="Email image name ...">
+            </div>
+            <div>
                 <label for="email" class="block font-medium">UpLoad pdf</label>
                 <input id="file" type="file" name="pdf_file" required autofocus class="form-input border-b border-gray-400 mt-1 block w-full outline-none" placeholder="Email Address">
             </div>
@@ -30,4 +40,22 @@
         
     </div>
 </div>
+
+<script>
+    // Display the alert with animation
+    const alert = document.getElementById('alert');
+    if (alert) {
+        alert.classList.remove('translate-y-[-100%]'); // Remove the initial translate class
+        alert.classList.add('translate-y-0'); // Bring it to the normal position
+
+        // Set a timeout to hide the alert after 3 seconds with animation
+        setTimeout(function() {
+            alert.classList.add('translate-y-[-100%]'); // Move it up
+            // Optionally, hide the element completely after the animation
+            setTimeout(() => {
+                alert.style.display = 'none'; // Hide the alert completely after animation is done
+            }, 500); // Match this with the duration of the transition
+        }, 3000); // 3000 milliseconds = 3 seconds
+    }
+</script>
 

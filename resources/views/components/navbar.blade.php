@@ -11,8 +11,8 @@
                 <a href=" {{ route('client.case') }}" class="text-white">MyCase</a>
                 <a href=" {{ route('client.courtdate')}}" class="text-white">CourtDate</a>
                 <a href="{{ route('client.meeting')}}" class="text-white">Consultation</a>
-                <a href="#" class="text-white">Location</a>
-                <a href="#" class="text-white">Subscribe</a>
+                <a href="{{ route('client.geolocation')}}" class="text-white">Location</a>
+                <a href="{{ route('client.paymentForm')}}" class="text-white">Subscribe</a>
             </div>
             
             <div class="flex justify-end items-center">

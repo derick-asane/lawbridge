@@ -37,6 +37,7 @@ class FileController extends Controller
             // Store the file path in your database
         $pdf = new file();
         $pdf->file_path = $filePath;
+        $pdf->file_name =  $request->name;
         $pdf->file_type = 'pdf';
         $pdf->mycase_id =  $mycase_id;
         $pdf->save();

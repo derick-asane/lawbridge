@@ -30,6 +30,7 @@
                         <th class="py-3 px-6 text-center">ID</th>
                         <th class="py-3 px-6 text-center">Subject</th>
                         <th class="py-3 px-6">Click link</th>
+                        <th class="py-3 px-6">Action</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
@@ -38,8 +39,16 @@
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="py-3 px-6 text-center">{{ $file->id }}</td>
                                 <td class="py-3 px-6 text-center">{{ $file->file_name }}</td>
-                                <td class="py-3 px-3 flex justify-center">
+                                <td class="py-3 px-3 text-center">
                                     <a href="{{ asset('storage/' . $file->file_path) }}" target="_blank">{{ $file->file_path }}</a>    
+                                </td>
+                                <td class="py-3 px-3 text-center">
+                                    <a href="#" class="bg-green-400 text-white hover:bg-green-800 py-1 px-4 rounded">Edit</a>
+                                    <form action="" method="POST" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-400  text-white hover:bg-red-700 ml-2 py-1 px-2 rounded">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endif     

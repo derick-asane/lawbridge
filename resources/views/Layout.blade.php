@@ -12,6 +12,18 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
+
+                <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        <style>
+            #map {
+                height: 500px;
+                width: 100%;
+            }
+        </style>
        
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">

@@ -10,12 +10,14 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Styles -->
        
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-
+        @php
+           $pendingCasesCount = \App\Models\Mycase::where('status', 'pending')->count();
+        @endphp
         <div class="flex h-screen">
             <aside class="w-[15%] bg-gray-900 p-4 rounded-md hidden md:flex md:flex-col gap-2">
                 <!-- sidebar links etc -->
@@ -84,7 +86,7 @@
                     <div class="w-[40%] sm:w-[15%] flex items-center justify-between">
                         <div class="relative">
                             <img src="{{ asset('svg/noti-bell.svg') }}" alt="" class="h-8 w-8">
-                            <div class="animate-ping absolute bg-red-600 text-[10px] text-white rounded-full top-0 left-2/3 px-1">6</div>
+                            <div class="animate-ping absolute bg-red-600 text-[10px] text-white rounded-full top-0 left-2/3 px-1">{{ $pendingCasesCount}}</div>
                         </div>
                         <span class="bold">{{Auth::User()->username}}</span>
                         <div class="avatar" data-toggle="modal" data-target="#userModal">

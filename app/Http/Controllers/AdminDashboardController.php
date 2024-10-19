@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourtDate;
+use App\Models\Meeting;
 use App\Models\mycase;
 
 use Illuminate\Http\Request;
@@ -55,4 +57,18 @@ class AdminDashboardController extends Controller
         // Redirect back to the same page
         return redirect()->back()->with('success', 'Status updated successfully!');
     }
+
+    public function dashboard()
+    {
+        // Example data, you can fetch this from your database
+        $labels = ['July', 'August', 'September', 'October'];
+        $data = [65, 59, 80, 81];
+
+        $totalCourtdates = CourtDate::count();
+        $totalCases =  mycase::count();
+        $totalMeetings = Meeting::count();
+
+        return view('admin.dashboard', compact('labels', 'data', 'totalCourtdates','totalCases', 'totalMeetings'));
+    }
+
 }
